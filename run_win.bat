@@ -1,4 +1,4 @@
-set GOPATH=F:\Andrey\workspase.sh.go\
+set GOPATH=%cd%
 
 cd src/rpio
 copy rpio.go.win rpio.go
