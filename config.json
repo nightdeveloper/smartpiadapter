@@ -1,0 +1,10 @@
+{
+"httpPort" : 8880,
+"poolTimeoutSecs" : 60,
+"ledRPin": 3,
+"ledGPin": 4,
+"ledBPin": 5,
+"temperatureSensorPin" : 6,
+"humiditySensorPin" : 7,
+"AirSensorPin" : 8
+}

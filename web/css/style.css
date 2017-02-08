@@ -1,0 +1,12 @@
+.navbar {
+    min-height: 0;
+}
+
+.table th {
+    background-color: #eeeeee;
+}
+
+label,
+input[type="checkbox"] {
+    cursor: pointer;
+}
