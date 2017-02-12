@@ -2,7 +2,7 @@ package settings
 
 import (
 	"encoding/json"
-	"logger"
+	"github.com/nightdeveloper/smartpiadapter/logger"
 	"path/filepath"
 	"io/ioutil"
 )

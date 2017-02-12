@@ -1,11 +1,11 @@
 package devices
 
 import (
-	"logger"
-	"settings"
+	"github.com/nightdeveloper/smartpiadapter/logger"
+	"github.com/nightdeveloper/smartpiadapter/settings"
 	"time"
-	"interfaces"
-	"structs"
+	"github.com/nightdeveloper/smartpiadapter/interfaces"
+	"github.com/nightdeveloper/smartpiadapter/structs"
 )
 
 type DeviceManager struct {

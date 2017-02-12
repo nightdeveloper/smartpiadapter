@@ -1,10 +1,6 @@
 set GOPATH=%cd%
 
-cd src/rpio
-copy rpio.go.win rpio.go
-cd ../../
-
-call go install smartadapter
+call go install github.com/nightdeveloper/smartpiadapter/main
 cd bin
 call smartadapter.exe
 cd ..

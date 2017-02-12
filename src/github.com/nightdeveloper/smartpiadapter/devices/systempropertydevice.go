@@ -1,10 +1,10 @@
 package devices
 
 import (
-	"structs"
-	"logger"
+	"github.com/nightdeveloper/smartpiadapter/structs"
+	"github.com/nightdeveloper/smartpiadapter/logger"
+	"github.com/nightdeveloper/smartpiadapter/interfaces"
 	"io/ioutil"
-	"interfaces"
 )
 
 type SystemPropertyDevice struct {

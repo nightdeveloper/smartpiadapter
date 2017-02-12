@@ -1,10 +1,10 @@
 package devices
 
 import (
-	"logger"
+	"github.com/nightdeveloper/smartpiadapter/logger"
+	"github.com/nightdeveloper/smartpiadapter/structs"
+	"github.com/stianeikeland/go-rpio"
 	"strconv"
-	"rpio"
-	"structs"
 )
 
 type OneStateDevice struct {

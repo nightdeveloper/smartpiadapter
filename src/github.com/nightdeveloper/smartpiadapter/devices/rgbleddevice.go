@@ -1,10 +1,10 @@
 package devices
 
 import (
-	"logger"
+	"github.com/nightdeveloper/smartpiadapter/logger"
+	"github.com/nightdeveloper/smartpiadapter/rpio"
+	"github.com/nightdeveloper/smartpiadapter/structs"
 	"strconv"
-	"rpio"
-	"structs"
 )
 
 type RgbLedDevice struct {

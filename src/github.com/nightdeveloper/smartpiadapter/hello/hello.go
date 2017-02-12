@@ -1,7 +1,7 @@
 package main
 
 import ( 
-	"logger"
+	"github.com/nightdeveloper/smartpiadapter/logger"
 	)
 
 func main() {

@@ -1,12 +1,12 @@
 package main
 
 import ( 
-	"logger"
-	"devices"
-	"settings"
-	"web"
-	"rpio"
-	"interfaces"
+	"github.com/nightdeveloper/smartpiadapter/logger"
+	"github.com/nightdeveloper/smartpiadapter/devices"
+	"github.com/nightdeveloper/smartpiadapter/settings"
+	"github.com/nightdeveloper/smartpiadapter/web"
+	"github.com/nightdeveloper/smartpiadapter/rpio"
+	"github.com/nightdeveloper/smartpiadapter/interfaces"
 	"strconv"
 )
 

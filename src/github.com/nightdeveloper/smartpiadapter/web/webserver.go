@@ -3,15 +3,15 @@ package web
 import (
 	"io/ioutil"
 	"net/http"
-	"logger"
 	"path/filepath"
 	"strings"
-	"devices"
-	"settings"
 	"html/template"
 	"strconv"
 	"encoding/json"
-	"structs"
+	"github.com/nightdeveloper/smartpiadapter/logger"
+	"github.com/nightdeveloper/smartpiadapter/devices"
+	"github.com/nightdeveloper/smartpiadapter/settings"
+	"github.com/nightdeveloper/smartpiadapter/structs"
 )
 
 type Server struct {

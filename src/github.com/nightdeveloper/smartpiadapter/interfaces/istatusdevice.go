@@ -1,6 +1,6 @@
 package interfaces
 
-import "structs"
+import "github.com/nightdeveloper/smartpiadapter/structs"
 
 type IStatusDevice interface {
 	GetName() string
