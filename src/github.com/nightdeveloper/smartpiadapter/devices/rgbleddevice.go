@@ -2,7 +2,7 @@ package devices
 
 import (
 	"github.com/nightdeveloper/smartpiadapter/logger"
-	"github.com/nightdeveloper/smartpiadapter/rpio"
+	"github.com/stianeikeland/go-rpio"
 	"github.com/nightdeveloper/smartpiadapter/structs"
 	"strconv"
 )

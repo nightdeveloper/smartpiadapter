@@ -5,14 +5,14 @@ import (
 	"github.com/nightdeveloper/smartpiadapter/devices"
 	"github.com/nightdeveloper/smartpiadapter/settings"
 	"github.com/nightdeveloper/smartpiadapter/web"
-	"github.com/nightdeveloper/smartpiadapter/rpio"
 	"github.com/nightdeveloper/smartpiadapter/interfaces"
+	"github.com/stianeikeland/go-rpio"
 	"strconv"
 )
 
-func addOneStateDevice(dm *devices.DeviceManager, name string, pin int) {
+func addTemperatureHamidityDevice(dm *devices.DeviceManager, name string, pin int) {
 
-	var td devices.OneStateDevice = devices.OneStateDevice{}
+	var td devices.Dht22Device = devices.Dht22Device{}
 	td.SetProps(name, pin);
 
 	var tdi interfaces.IStatusDevice = &td;
@@ -48,9 +48,7 @@ func main() {
 	dm := devices.DeviceManager{};
 	dm.Init(&c);
 
-	addOneStateDevice(&dm, "Temperature", c.TemperatureSensorPin);
-	addOneStateDevice(&dm, "Humidity", c.HumiditySensorPin);
-	addOneStateDevice(&dm, "AirSensorPin", c.AirSensorPin);
+	addTemperatureHamidityDevice(&dm, "Temperature", c.TemperatureSensorPin);
 
 	addSystemPropertyDevice(&dm, "CpuTemperature", "/sys/class/thermal/thermal_zone0/temp", false,
 		func(r string) (int, string) {
@@ -62,8 +60,6 @@ func main() {
 
 			return i / 1000, r;
 		});
-
-	addRgbLedDevice(&dm, &c);
 
 	dm.Start();
 
