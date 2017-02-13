@@ -52,6 +52,7 @@ func main() {
 
 	addSystemPropertyDevice(&dm, "CpuTemperature", "/sys/class/thermal/thermal_zone0/temp", false,
 		func(r string) (int, string) {
+			logger.info(fmt.Sprintf("asked to convert from %s", r);
 
 			i, err := strconv.Atoi(r);
 			if err != nil {

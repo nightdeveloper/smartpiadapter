@@ -4,7 +4,7 @@
 "ledRPin": 3,
 "ledGPin": 4,
 "ledBPin": 5,
-"temperatureSensorPin" : 6,
+"temperatureSensorPin" : 3,
 "humiditySensorPin" : 7,
 "AirSensorPin" : 8
 }

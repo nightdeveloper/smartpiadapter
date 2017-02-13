@@ -5,6 +5,7 @@ import (
 	"github.com/nightdeveloper/smartpiadapter/structs"
 	"github.com/d2r2/go-dht"
 	"strconv"
+	"fmt"
 )
 
 type Dht22Device struct {
@@ -47,8 +48,7 @@ func (td *Dht22Device) GetStatus() structs.DeviceStatus {
 	}
 	td.temperature = temperature;
 	td.humidity = humidity;
-	ds.Status = "temperature = " + string(temperature) + ", humidity = " + string(humidity) +
-		" (retried " +  string(retried) + " times)";
+	ds.Status = fmt.Sprintf("temperature = %g, humidity = %d (retried %i times)", temperature, humidity, retried);
 	ds.Value = int(td.temperature);
 	// todo add humanity
 
