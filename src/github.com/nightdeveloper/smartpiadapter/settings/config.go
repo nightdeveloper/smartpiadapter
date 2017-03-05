@@ -22,7 +22,7 @@ func (c *Config) Load() {
 
 	absPath, _ := filepath.Abs("../");
 
-	filename := absPath + "config.json";
+	filename := absPath + "/config.json";
 
 	file, err := ioutil.ReadFile(filename)
 
