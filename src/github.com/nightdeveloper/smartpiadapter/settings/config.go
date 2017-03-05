@@ -11,6 +11,7 @@ type Config struct {
 	PoolTimeoutSecs int
 	HttpPort int
 	TelegramKey string
+	TelegramOpId string
 	TemperatureSensorPin int
 	HumiditySensorPin int
 	AirSensorPin int

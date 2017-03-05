@@ -40,6 +40,15 @@ func addSystemPropertyDevice(dm *devices.DeviceManager, name string, command str
 	dm.AddSystemProperyDevice(&spdi);
 }
 
+func addIpInfoDevice(dm *devices.DeviceManager, name string) {
+
+	var spd devices.IpInfoDevice = devices.IpInfoDevice{}
+	spd.SetProps(name, "", false, func(r string) (int, string) { return 0, ""});
+
+	var spdi interfaces.ISystemPropertyDevice = &spd;
+	dm.AddSystemProperyDevice(&spdi);
+}
+
 func main() {
 	logger.Info("application started");
 
@@ -66,6 +75,8 @@ func main() {
 
 			return int(res), strconv.FormatFloat(res, 'f', 2, 64);
 		});
+
+	addIpInfoDevice(&dm, "IpInfo")
 
 	dm.Start();
 

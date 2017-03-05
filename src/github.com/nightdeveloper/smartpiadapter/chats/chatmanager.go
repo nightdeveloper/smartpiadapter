@@ -6,6 +6,8 @@ import (
 	"github.com/go-telegram-bot-api/telegram-bot-api"
 	"github.com/nightdeveloper/smartpiadapter/logger"
 	"fmt"
+	"strconv"
+	"time"
 )
 
 type ChatManager struct {
@@ -28,6 +30,8 @@ func (cm *ChatManager) Start() {
 		return;
 	}
 
+	logger.Info("telegram bot created");
+
 	cm.bot = bot;
 
 	u := tgbotapi.NewUpdate(0)
@@ -36,11 +40,20 @@ func (cm *ChatManager) Start() {
 	updates, err := bot.GetUpdatesChan(u)
 
 	for update := range updates {
+
+		time.Sleep(time.Second)
+
 		if (update.Message == nil) {
 			continue
 		}
-		logger.Info(fmt.Sprintf("%d %s sends me %s",
-			update.Message.From.ID, update.Message.From.UserName, update.Message.Text))
+
+		if (strconv.Itoa(update.Message.From.ID) != cm.c.TelegramOpId) {
+			logger.Info(fmt.Sprintf("[%d %s] sends me unauth message: %s",
+				update.Message.From.ID, update.Message.From.UserName, update.Message.Text))
+			continue
+		}
+
+		logger.Info(fmt.Sprintf("operator sends me %s", update.Message.Text))
 	}
 
 }
