@@ -6,7 +6,6 @@ import (
 	"github.com/nightdeveloper/smartpiadapter/settings"
 	"github.com/nightdeveloper/smartpiadapter/web"
 	"github.com/nightdeveloper/smartpiadapter/interfaces"
-	"github.com/stianeikeland/go-rpio"
 	"strconv"
 	"strings"
 	"github.com/nightdeveloper/smartpiadapter/chats"
@@ -54,8 +53,6 @@ func main() {
 
 	c := settings.Config{};
 	c.Load();
-
-	rpio.Open();
 
 	dm := devices.DeviceManager{};
 	dm.Init(&c);

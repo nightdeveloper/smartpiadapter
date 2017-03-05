@@ -27,6 +27,8 @@ func (td *Dht22Device) SetProps(name string, pin int) {
 
 func (td *Dht22Device) Init() {
 
+	rpio.Open();
+
 	td.temperature = 0;
 	td.humidity = 0;
 
