@@ -10,6 +10,7 @@ import (
 type Config struct {
 	PoolTimeoutSecs int
 	HttpPort int
+	TelegramKey string
 	TemperatureSensorPin int
 	HumiditySensorPin int
 	AirSensorPin int

@@ -9,6 +9,7 @@ import (
 	"github.com/stianeikeland/go-rpio"
 	"strconv"
 	"strings"
+	"github.com/nightdeveloper/smartpiadapter/chats"
 )
 
 func addTemperatureHamidityDevice(dm *devices.DeviceManager, name string, pin int) {
@@ -67,6 +68,10 @@ func main() {
 		});
 
 	dm.Start();
+
+	cm := chats.ChatManager{}
+	cm.Init(&c, &dm);
+	cm.Start();
 
 	web := web.Server{}
 	web.Start(&dm, &c);

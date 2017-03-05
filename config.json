@@ -1,5 +1,6 @@
 {
 "httpPort" : 8880,
+"telegramKey" : "123",
 "poolTimeoutSecs" : 60,
 "ledRPin": 3,
 "ledGPin": 4,
