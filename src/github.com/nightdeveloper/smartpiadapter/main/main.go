@@ -8,6 +8,7 @@ import (
 	"github.com/nightdeveloper/smartpiadapter/interfaces"
 	"github.com/stianeikeland/go-rpio"
 	"strconv"
+	"strings"
 )
 
 func addTemperatureHamidityDevice(dm *devices.DeviceManager, name string, pin int) {
@@ -28,7 +29,8 @@ func addRgbLedDevice(dm *devices.DeviceManager, c *settings.Config) {
 	dm.AddRgbLedDevice(&ldi);
 }
 
-func addSystemPropertyDevice(dm *devices.DeviceManager, name string, command string, isCommand bool, rc interfaces.ResultConverter) {
+func addSystemPropertyDevice(dm *devices.DeviceManager, name string, command string, isCommand bool,
+	rc interfaces.ResultConverter) {
 
 	var spd devices.SystemPropertyDevice = devices.SystemPropertyDevice{}
 	spd.SetProps(name, command, isCommand, rc);
@@ -52,13 +54,16 @@ func main() {
 
 	addSystemPropertyDevice(&dm, "CpuTemperature", "/sys/class/thermal/thermal_zone0/temp", false,
 		func(r string) (int, string) {
+			r = strings.Replace(r, "\n","", -1);
 
-			i, err := strconv.Atoi(r);
+			i, err := strconv.ParseFloat(r, 64);
 			if err != nil {
-				return 0, r
+				return 0, "error parsing " + r + " " + err.Error();
 			}
 
-			return i / 1000, r;
+			var res = i / 1000;
+
+			return int(res), strconv.FormatFloat(res, 'f', 2, 64);
 		});
 
 	dm.Start();

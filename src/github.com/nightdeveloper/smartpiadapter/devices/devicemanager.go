@@ -58,6 +58,9 @@ func (d *DeviceManager) Start() {
 		logger.Info("device manager loop start")
 		for {
 			time.Sleep(time.Duration(d.c.PoolTimeoutSecs) * time.Second);
+			for k, v := range (*d).GetStatus() {
+				logger.Info(k + " " + v.Status)
+			}
 		}
 	}()
 

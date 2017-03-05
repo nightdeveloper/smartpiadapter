@@ -5,6 +5,7 @@ import (
 	"github.com/nightdeveloper/smartpiadapter/structs"
 	"github.com/d2r2/go-dht"
 	"strconv"
+	"fmt"
 )
 
 type Dht22Device struct {
@@ -39,7 +40,7 @@ func (td *Dht22Device) GetStatus() structs.DeviceStatus {
 
 	sensorType := dht.DHT22
 	temperature, humidity, retried, err :=
-		dht.ReadDHTxxWithRetry(sensorType, td.pinNum, false, 10)
+		dht.ReadDHTxxWithRetry(sensorType, td.pinNum, false, 2)
 	if err != nil {
 		ds.Status = "error while reading"
 		logger.Error("error while read dht22", err)
@@ -47,8 +48,9 @@ func (td *Dht22Device) GetStatus() structs.DeviceStatus {
 	}
 	td.temperature = temperature;
 	td.humidity = humidity;
-	ds.Status = "temperature = " + string(temperature) + ", humidity = " + string(humidity) +
-		" (retried " +  string(retried) + " times)";
+	ds.Status =
+		fmt.Sprintf("temperature = %.2f, humidity = %.2f (retried %d times)",
+		temperature, humidity, retried)
 	ds.Value = int(td.temperature);
 	// todo add humanity
 
